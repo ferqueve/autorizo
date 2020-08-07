@@ -1,0 +1,36 @@
+<!--<meta name="google-signin-client_id" content="794137282759-6rr2en2d7o0vndhj8slv6cg9ig1hs10f.apps.googleusercontent.com">-->
+  
+<html> 
+    <head> 
+        <meta name="google-signin-client_id" content="794137282759-dp81mv8hlmm3qo03bg7iettfns18hb2i.apps.googleusercontent.com"> 
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                var perfil="<h1> Te conectaste a 'ES LA 3' </h1>";
+                perfil+="<img src=" + profile.getImageUrl() +"><br> ID: " +
+                 profile.getId() +
+                  "<br>" + "Nombre: " + profile.getName() +
+                  "<br>  Email: "+ profile.getEmail() + "<br>" +
+                  profile.getFamilyName();
+
+                document.getElementById('datos').innerHTML=perfil;
+               
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+        <div id="datos"></div><br>
+        <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+    </body>
+</html> 
