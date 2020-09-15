@@ -27,9 +27,9 @@
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       alert("Usuario desconectado");
-      
+      location.reload();
     });
-    location.reload();
+    
   }
 </script>
     </body>
