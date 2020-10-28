@@ -23,10 +23,13 @@
     </head>
     <body>
       <div class="container">
+        <h1>Ejemplo de uso de OAuth</h1>
+        
         <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
-        <div id="datos"></div><br>
+        
+        <div id="datos" class="container"></div><br>
         </div>
-        <a href="#" onclick="signOut();">Sign out</a>
+        <button class="btn btn-danger" onclick="signOut();"> Desconectarse</button>
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
