@@ -12,12 +12,11 @@
         <script>
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();//Obtiene perfil de usuario básico.
-                var perfil="<div class='row'> <h2> Perfil del usuario </h2>";
+                var perfil="<h2> Perfil del usuario </h2><div class='row'> ";
                 perfil+="<div class='col-1'><img src=" + profile.getImageUrl() +"></div> " +
-                 "<div class='col-1'>"+ profile.getId() +
+                 "<div class='col-12'> ID:"+ profile.getId() +
                   "</div>" + "<div class='col-sm'> Nombre: " + profile.getName() +
-                  "</div> <div class='col-sm'> Email: "+ profile.getEmail() + "</div> <div class='col-sm'>" +
-                  profile.getFamilyName()+"</div> </div>";
+                  "</div> <div class='col-sm'> Email: "+ profile.getEmail() + "</div> </div>";
 
                 document.getElementById('datos').innerHTML=perfil;
                
