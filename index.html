@@ -2,18 +2,22 @@
     <head> 
         <meta name="google-signin-client_id" content="794137282759-dp81mv8hlmm3qo03bg7iettfns18hb2i.apps.googleusercontent.com"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        
+        <style>
+            img {
+                 border-radius: 50%; /*Hace la imagen circular*/
+                }
+        </style>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
         <script>
             function onSignIn(googleUser) {
-                var profile = googleUser.getBasicProfile();
-                var perfil="<h1> Te conectaste a 'ES LA 3' </h1>";
-                perfil+="<img src=" + profile.getImageUrl() +"><br> ID: " +
-                 profile.getId() +
-                  "<br>" + "Nombre: " + profile.getName() +
-                  "<br>  Email: "+ profile.getEmail() + "<br>" +
-                  profile.getFamilyName();
+                var profile = googleUser.getBasicProfile();//Obtiene perfil de usuario básico.
+                var perfil="<div class='row'> <h2> Perfil del usuario </h2>";
+                perfil+="<div class='col-1'><img src=" + profile.getImageUrl() +"></div> " +
+                 "<div class='col-1'>"+ profile.getId() +
+                  "</div>" + "<div class='col-sm'> Nombre: " + profile.getName() +
+                  "</div> <div class='col-sm'> Email: "+ profile.getEmail() + "</div> <div class='col-sm'>" +
+                  profile.getFamilyName()+"</div> </div>";
 
                 document.getElementById('datos').innerHTML=perfil;
                
@@ -24,12 +28,13 @@
     <body>
       <div class="container">
         <h1>Ejemplo de uso de OAuth</h1>
-        
-        <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
-        
+        <div class = "container">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div><button class="btn btn-danger" onclick="signOut();"> Desconectarse</button><br>
+        </div>
         <div id="datos" class="container"></div><br>
         </div>
-        <button class="btn btn-danger" onclick="signOut();"> Desconectarse</button>
+        
+        
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
