@@ -1,7 +1,10 @@
 <html> 
     <head> 
         <meta name="google-signin-client_id" content="794137282759-dp81mv8hlmm3qo03bg7iettfns18hb2i.apps.googleusercontent.com"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
         <script>
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
@@ -19,8 +22,10 @@
         </script>
     </head>
     <body>
+      <div class="container">
         <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
         <div id="datos"></div><br>
+        </div>
         <a href="#" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {
